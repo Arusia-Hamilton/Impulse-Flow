@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impulse Flow - Interactive Background</title>
+    <style>
+        :root {
+            --accent-color: #60a5fa;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --bg-glass: rgba(15, 23, 42, 0.7);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0e14;
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .ui-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        .glass-panel {
+            max-width: 550px;
+            padding: 40px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            pointer-events: auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            font-weight: 200;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .description {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+        }
+
+        .guide-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-main);
+            font-size: 0.85rem;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            line-height: 32px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ui-container">
+        <div class="glass-panel">
+            <h1>Impulse Flow</h1>
+            <div class="tagline">Interactive Physics Background</div>
+            
+            <p class="description">
+                マウス操作で輝く粒子を操り、衝撃波や繋がりを楽しむ動的な背景です。
+            </p>
+
+            <div class="guide">
+                <div class="guide-item">
+                    <span class="icon">&#x1F5B1;</span>
+                    <span><strong>MouseMove:</strong><br>オブジェクトを弾き飛ばす</span>
+                </div>
+                <div class="guide-item">
+                    <span class="icon">&#x26A1;</span>
+                    <span><strong>Left Click:</strong><br>衝撃波を放ち一斉に飛ばす</span>
+                </div>
+                <div class="guide-item">
+                    <span class="icon">&#x1F517;</span>
+                    <span><strong>Link:</strong><br>距離に応じて自動で接続する</span>
+                </div>
+                <div class="guide-item">
+                    <span class="icon">&#x1F525;</span>
+                    <span><strong>Burst:</strong><br>追い詰めると緊急回避する</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Impulse-Flow.js"></script>
+</body>
+</html>
