@@ -1,28 +1,28 @@
 ﻿(function() {
     // --- 設定項目 ---
-    const BALL_COUNT = 18;
-    const MIN_SPEED = 5;
-    const MAX_BOOST_SPEED = 15;
-    const EMERGENCY_SPEED = 25;
-    const FRICTION = 0.97;
-    const HITBOX_SCALE = 1.3;
+    const BALL_COUNT = 10;          // 画面に表示されるメインオブジェクト（球体）の数
+    const MIN_SPEED = 5;           // オブジェクトの最低速度（常にこの速さ以上で動く）
+    const MAX_BOOST_SPEED = 15;    // 通常の衝突時に加速する際の最高速度
+    const EMERGENCY_SPEED = 25;    // 壁とマウスに挟まれた際などの緊急回避速度
+    const FRICTION = 0.97;         // 摩擦（加速した後に徐々に元の速度へ戻る減衰率）
+    const HITBOX_SCALE = 1.3;      // 当たり判定の倍率（1.0で見た目通り、大きいほど離れていても衝突する）
     
-    const BALL_SIZE_MIN = 8;
-    const BALL_SIZE_MAX = 25;
+    const BALL_SIZE_MIN = 8;       // オブジェクトの最小半径
+    const BALL_SIZE_MAX = 25;      // オブジェクトの最大半径
     
-    const TRAIL_ALPHA = 0.2;
-    const PARTICLE_COUNT = 8;
-    const PARTICLE_DECAY = 0.94;
+    const TRAIL_ALPHA = 0.2;       // 残像の濃さ（小さいほど長い尾を引く）
+    const PARTICLE_COUNT = 8;      // 1回の衝突で発生する火花の数
+    const PARTICLE_DECAY = 0.94;   // 火花の消えやすさ（小さいほど早く消える）
 
-    const LINK_DISTANCE = 180;
-    const LINK_WIDTH = 1;
+    const LINK_DISTANCE = 180;     // オブジェクト同士が線で繋がる最大距離
+    const LINK_WIDTH = 1;          // 繋がる線の太さ
 
-    // 衝撃波の設定
-    const MOUSE_RADIUS = 50; 
-    const SHOCKWAVE_MAX_RADIUS = 250;
-    const SHOCKWAVE_SPEED = 12;
-    const SHOCKWAVE_FORCE = 35;
-    const SHOCKWAVE_THICKNESS = 20;
+    // 衝撃波（クリック時）の設定
+    const MOUSE_RADIUS = 50;       // 通常時のマウスの当たり判定半径
+    const SHOCKWAVE_MAX_RADIUS = 250; // 衝撃波が広がる最大の半径
+    const SHOCKWAVE_SPEED = 12;    // 衝撃波が広がる速さ
+    const SHOCKWAVE_FORCE = 35;    // 衝撃波がオブジェクトを弾き飛ばす力
+    const SHOCKWAVE_THICKNESS = 20; // 衝撃波の当たり判定の「波の厚み」
     // ----------------
 
     const canvas = document.createElement('canvas');
